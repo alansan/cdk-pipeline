@@ -15,7 +15,8 @@ class MyPipelineStack(cdk.Stack):
                             commands=["npm install -g aws-cdk", 
                                 "python -m pip install -r requirements.txt",
                                 "cdk synth"]
-                        )
+                        ),
+                        cross_account_keys=True
                     )
 
         test_stage = pipeline.add_stage(MyPipelineAppStage(self, "test",
