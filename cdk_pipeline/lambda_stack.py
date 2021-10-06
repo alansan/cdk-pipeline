@@ -1,5 +1,5 @@
 from aws_cdk import core as cdk
-from aws_cdk.aws_lambda import Function, InlieCode, Runtime
+from aws_cdk.aws_lambda import Function, InlineCode, Runtime
 
 class MyLambdaStack(cdk.Stack):
     def __init__(self, scope: cdk.Construct, construct_id: str, **kwargs) -> None:
