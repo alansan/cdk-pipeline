@@ -11,7 +11,7 @@ class MyPipelineStack(cdk.Stack):
         pipeline =  CodePipeline(self, "Pipeline", 
                         pipeline_name="MyPipeline",
                         synth=ShellStep("Synth", 
-                            input=CodePipelineSource.git_hub("timofeic/cdk-pipeline", "master"),
+                            input=CodePipelineSource.git_hub("alansan/cdk-pipeline", "master"),
                             commands=["npm install -g aws-cdk", 
                                 "python -m pip install -r requirements.txt",
                                 "cdk synth"]
@@ -20,11 +20,5 @@ class MyPipelineStack(cdk.Stack):
                     )
 
         test_stage = pipeline.add_stage(MyPipelineAppStage(self, "test",
-            env=cdk.Environment(account="823500142645", region="eu-west-2")))
+            env=cdk.Environment(account="644040437375", region="eu-central-1")))
 
-        test_stage.add_post(ManualApprovalStep('approval'))
-
-        prod_stage = pipeline.add_stage(MyPipelineAppStage(self, "prod",
-            env=cdk.Environment(account="017056865457", region="eu-west-1")))
-
-        test_stage.add_post(ManualApprovalStep('approval'))

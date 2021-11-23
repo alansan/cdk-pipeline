@@ -6,8 +6,8 @@ import os
 app = cdk.App()
 MyPipelineStack(app, "MyPipelineStack", 
     env=cdk.Environment(
-        account="823500142645", 
-        region="eu-west-2")
+        account="644040437375", 
+        region="eu-central-1")
 )
 
 app.synth()
